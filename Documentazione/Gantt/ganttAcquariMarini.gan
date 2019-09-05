@@ -33,7 +33,30 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="Gestione manutenzione acquari marini" color="#8cb6ce" meeting="false" start="2019-08-26" duration="97" complete="0" thirdDate="2019-08-26" thirdDate-constraint="0" expand="true"/>
+        <task id="0" name="Gestione manutenzione acquari marini" color="#8cb6ce" meeting="false" start="2019-08-01" duration="114" complete="0" thirdDate="2019-08-26" thirdDate-constraint="0" expand="true">
+            <task id="1" name="Documentazione" color="#8cb6ce" meeting="false" start="2019-09-03" duration="91" complete="0" thirdDate="2019-08-01" thirdDate-constraint="0" expand="true"/>
+            <task id="12" name="Intervista al committnte" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true"/>
+            <task id="11" name="Progettazione" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true">
+                <task id="13" name="Gantt" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true"/>
+                <task id="14" name="Analisi dei requisiti" color="#8cb6ce" meeting="false" start="2019-08-01" duration="1" complete="0" thirdDate="2019-08-01" thirdDate-constraint="0" expand="true"/>
+                <task id="16" name="Analisi del dominio" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true"/>
+            </task>
+            <task id="18" name="Implementazione" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true">
+                <task id="22" name="Data base" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true"/>
+                <task id="27" name="Frontend" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true">
+                    <task id="20" name="Pagina di registrazione" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true"/>
+                    <task id="21" name="Pagina di Login" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true"/>
+                    <task id="24" name="Pagina gestione utenti" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true"/>
+                    <task id="25" name="Pagina informazioni acquario" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true"/>
+                    <task id="26" name="Pagina riassuntiva acquari" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true"/>
+                    <task id="23" name="Pagina gestione acquari" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true"/>
+                </task>
+                <task id="28" name="Backend" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true">
+                    <task id="29" name="Connessione al database" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true"/>
+                    <task id="30" name="Lettura e utilizzo dati" meeting="false" start="2019-08-01" duration="1" complete="0" expand="true"/>
+                </task>
+            </task>
+        </task>
     </tasks>
     <resources/>
     <allocations/>
