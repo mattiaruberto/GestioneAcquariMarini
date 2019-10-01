@@ -14,13 +14,14 @@
     </execution>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$" />
   </component>
   <component name="ProjectId" id="1RHevkx5K5yiXjf6HmKLJIdcyyo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
@@ -47,7 +48,11 @@
       <updated>1569328681726</updated>
       <workItem from="1569328683158" duration="160000" />
       <workItem from="1569328903055" duration="1503000" />
-      <workItem from="1569330643569" duration="4285000" />
+      <workItem from="1569330643569" duration="4541000" />
+      <workItem from="1569496861049" duration="9417000" />
+      <workItem from="1569583282606" duration="5328000" />
+      <workItem from="1569593548379" duration="397000" />
+      <workItem from="1569928924275" duration="10737000" />
     </task>
     <servers />
   </component>

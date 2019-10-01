@@ -8,9 +8,9 @@ class Application
     public function __construct()
     {
         $this->splitUrl();
-        if(file_exists('./cantanti/controllers/'.$this->url_controller.'.php'))
+        if(file_exists('./GestioneAcquariMarini/controllers/'.$this->url_controller.'.php'))
         {
-            require './cantanti/controllers/'.$this->url_controller.'.php';
+            require './GestioneAcquariMarini/controllers/'.$this->url_controller.'.php';
             $this->url_controller = new $this->url_controller();
 
             if(method_exists($this->url_controller, $this->url_action)){

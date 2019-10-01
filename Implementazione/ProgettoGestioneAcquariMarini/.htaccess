@@ -5,7 +5,7 @@ Options -MultiViews
 RewriteEngine On
 # Disallows others to look directly into /public/ folder
 Options -Indexes
-RewriteBase /MattiaRuberto/GestioneAcquariMarini/
+RewriteBase /scuola/ProgettoGestioneAcquariMarini/
 # regole di rewrite generali, se le 3 sotto sono valide allora riscrivi il link (fai partire RewriteCond)
 #non eseguirla per una directory
 RewriteCond %{REQUEST_FILENAME} !-d

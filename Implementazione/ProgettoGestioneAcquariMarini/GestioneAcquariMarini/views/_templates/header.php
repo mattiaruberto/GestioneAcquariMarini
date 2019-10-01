@@ -7,18 +7,18 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <style>
-            .containerDiv {
-                border-style: solid;
-                margin: 1%;
-                padding: 2%;
+            .containerDiv{
+                padding-right: 2%;
+                padding-left: 2%;
             }
-            table, th, td {
-                border: 1px solid black;
-                border-collapse: collapse;
+            .footer-copyright{
+                margin-top: 5%;
+                padding: 1%;
+                border-top: 1px solid black;
+            }
+            li:hover {
+                background-color: rgba(190, 190, 190, 0.84);
             }
         </style>
     </head>
     <body>
-        <div class="containerDiv">
-            <h1>Gestione Acquari Marini</h1>
-        </div>
