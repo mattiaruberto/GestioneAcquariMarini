@@ -1,25 +1,27 @@
 <!-- form per aggiunta strumento -->
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand">Gestione Acquari Marini</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li><a href="#">Riassuntiva</a></li>
-                <li><a href="#">Gestione vasche</a></li>
-                <li><a href="#">Gestione utenti</a></li>
-                <li><a href="#">Login</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
 <div class="containerDiv" id="riassuntva">
-    <h1 align="center">Pagina Riassuntiva</h1>
+    <h1 align="center" style="margin-top: 7%">Pagina Riassuntiva</h1>
+    <table class="table table-bordered" style="margin-top: 7%">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Magnesio</th>
+            <th>Calcio</th>
+            <th>Kh</th>
+            <th>Cambio d'acqua</th>
+            <th>Litraggio</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($aquariums as $aquarium): ?>
+            <tr>
+                <?php foreach ($aquarium as $row): ?>
+                    <td><?php echo $row; ?></td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
 
+
+        </tbody>
+    </table>
 </div>

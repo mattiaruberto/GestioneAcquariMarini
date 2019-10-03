@@ -24,7 +24,6 @@ class LoginModel
 
         $result = $this->statement->fetchAll(PDO::FETCH_ASSOC);
         return $result;
-
     }
 }
 ?>

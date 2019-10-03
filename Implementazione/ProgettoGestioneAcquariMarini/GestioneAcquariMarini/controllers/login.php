@@ -12,11 +12,12 @@ class Login{
             $pass = hash('sha256', $_POST['password']);
             require_once 'GestioneAcquariMarini/models/loginmodel.php';
             $loginModel = new LoginModel();
-            $result = $loginModel->getTipo($username, $pass);
+            $result = $loginModel->getUser($username, $pass);
             //se trovo un elemento posso entrare
             if (count($result) > 0) {
                 session_start();
                 $_SESSION["errore"] = 0;
+                $_SESSION["authentification"] = true;
                 $_SESSION["email"] = $result[0]['email'];
                 $_SESSION["password"] = $result[0]['password'];
                 $_SESSION["passwordDefault"] = $result[0]['passwordDefault'];

@@ -1,24 +1,3 @@
-<!-- form per aggiunta strumento -->
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand">Gestione Acquari Marini</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li><a href="#">Riassuntiva</a></li>
-                <li><a href="#">Gestione vasche</a></li>
-                <li><a href="#">Gestione utenti</a></li>
-                <li><a href="#">Login</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
 <div class="containerDiv">
     <h1 align="center">Pagina Gestione Vasche</h1>
     <h3 id="addUser">Aggiungi vasca</h3>
@@ -33,4 +12,27 @@
         <input type="submit" name="submit_add_strumento" value="Add" class="btn btn-default" style="margin-top: 1%"/>
     </form>
     <h3 id="addUser">Tabella vasche</h3>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Litraggio</th>
+            <th>Rimuovi</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($aquariums as $aquarium): ?>
+            <tr>
+                <?php foreach ($aquarium as $row): ?>
+                    <td><?php echo $row; ?></td>
+                <?php endforeach; ?>
+                <td>
+                    <button class="btn btn-primary btn-sm" onclick="location.href='<?php echo URL; ?>gestioneVasche/delete/<?php $name; ?>'">Rimuovi</button>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+
+
+        </tbody>
+    </table>
 </div>
