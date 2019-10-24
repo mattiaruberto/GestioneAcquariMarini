@@ -1,0 +1,23 @@
+.containerDiv{
+    margin-right: 2%;
+    margin-left: 2%;
+}
+.footer-copyright{
+    margin-top: 5%;
+    padding: 1%;
+    border-top: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.header img {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: #555;
+}
+
+.header h3 {
+    position: relative;
+    top: 18px;
+    left: 10px;
+}

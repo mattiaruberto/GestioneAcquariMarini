@@ -13,6 +13,13 @@
       <executable />
     </execution>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$" />
   </component>
@@ -23,6 +30,15 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\media\img" />
+      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\js" />
+      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\css" />
+      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\views\gestioneAcquari" />
+      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\views\vasche" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -35,6 +51,17 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="gestioneAcquari" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$/GestioneAcquariMarini/views/gestioneAcquari" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.gestioneAcquari" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -55,6 +82,16 @@
       <workItem from="1569928924275" duration="10737000" />
       <workItem from="1569947900624" duration="176000" />
       <workItem from="1570102260268" duration="8543000" />
+      <workItem from="1570188467737" duration="10498000" />
+      <workItem from="1570533204703" duration="10601000" />
+      <workItem from="1570706502137" duration="10425000" />
+      <workItem from="1570798783882" duration="5290000" />
+      <workItem from="1571137856568" duration="11538000" />
+      <workItem from="1571153979060" duration="654000" />
+      <workItem from="1571310861154" duration="10708000" />
+      <workItem from="1571397482216" duration="9068000" />
+      <workItem from="1571742852223" duration="10569000" />
+      <workItem from="1571915888746" duration="9908000" />
     </task>
     <servers />
   </component>

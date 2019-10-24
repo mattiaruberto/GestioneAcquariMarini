@@ -1,19 +1,22 @@
 <?php
-class Menu{
+class Menu
+{
     public function logout(){
         session_start();
         session_destroy();
         header("location: " . URL);
     }
 
-    public function gestioneVasche(){
-        echo "a";
-        header("Location:" . URL . "gestioneVasche");
+    public function tankManagement(){
+        header("Location:" . URL . "tankManagement");
     }
 
-    public function riassuntiva(){
-        echo "a";
-        header("Location:" . URL . "riassuntiva");
+    public function home(){
+        header("Location:" . URL . "home");
+    }
+
+    public function userManagement(){
+        header("Location:" . URL . "userManagement");
     }
 }
 ?>

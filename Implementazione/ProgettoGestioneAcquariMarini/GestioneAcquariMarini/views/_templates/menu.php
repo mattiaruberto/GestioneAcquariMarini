@@ -10,9 +10,9 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="<?php echo URL; ?>Menu/riassuntiva">Riassuntiva</a></li>
-                <li><a href="<?php echo URL; ?>Menu/gestioneVasche">Gestione vasche</a></li>
-                <li><a href="#">Gestione utenti</a></li>
+                <li><a href="<?php echo URL; ?>Menu/home">Riassuntiva</a></li>
+                <li><a href="<?php echo URL; ?>Menu/tankManagement">Gestione vasche</a></li>
+                <li><a href="<?php echo URL; ?>Menu/userManagement">Gestione utenti</a></li>
                 <li><a href="<?php echo URL; ?>Menu/logout">Logout</a></li>
             </ul>
         </div>
