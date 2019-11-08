@@ -47,13 +47,17 @@ class UserManagement
     }
 
     public function addUser(){
-        require "GestioneAcquariMarini/models/mailModel.php";
-        $mail = new MailModel();
         $users = $this->getValidatedValues();
-        $mail->sendEmailToNewUser($users[0],$users[6],$users[1],$users[2]);
-        $users = $this->getValidatedValues();
+        $this->sendEmail($users[0],$users[6], $users[1], $users[2]);
+        $users[6] = password_hash($users[6], PASSWORD_DEFAULT);
         $this->usersManagementModel->add($users);
         header("Location:" . URL . "userManagement");
+    }
+
+    public function sendEmail($email, $name, $surname, $password){
+        require "GestioneAcquariMarini/models/mailModel.php";
+        $mail = new MailModel();
+        $mail->sendEmail($email, $name, $surname, $password);
     }
 
     public function formModifyTank($email)
@@ -77,14 +81,14 @@ class UserManagement
     }
 
     private function getValidatedValues(){
-        require "GestioneAcquariMarini/controllers/validator.php";
+        require "GestioneAcquariMarini/controllers/validationFunction.php";
         $validator = new Validator();
-        $email = $validator->validatePrimaryKey($_POST["email"]);
-        $nome = $validator->validateInt($_POST["name"]);
-        $cognome = $validator->validateInt($_POST["surname"]);
-        $tipo = $validator->validateInt($_POST["type"]);
-        $numeroTelefonico = $validator->validateDate($_POST["phoneNumber"]);
-        $cambioPassword = $validator->validateInt($_POST["passwordChange"]);
+        $email = $_POST["email"];
+        $nome = $_POST["name"];
+        $cognome = $_POST["surname"];
+        $tipo = $_POST["type"];
+        $numeroTelefonico = $_POST["phoneNumber"];
+        $cambioPassword = 0;
         $password = $this->generetaRandomPassword();
 
         $users = array($email,$nome,$cognome,$tipo,$numeroTelefonico,$cambioPassword,$password);

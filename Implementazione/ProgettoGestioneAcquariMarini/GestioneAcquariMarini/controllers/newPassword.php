@@ -17,8 +17,8 @@ class newPassword
         session_start();
         if (isset($_POST['submitNewPassword'])) {
             if ($_POST['newPassword'] == $_POST['againNewPassword']) {
-                require_once 'GestioneAcquariMarini/models/passwordModel.php';
-                $newPasswordModel = new passwordModel();
+                require_once 'GestioneAcquariMarini/models/PasswordModel.php';
+                $newPasswordModel = new PasswordModel();
                 $email = $_SESSION["email"];
                 $password = $pass = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
                 $newPasswordModel->insertPassword($email,$password,1);

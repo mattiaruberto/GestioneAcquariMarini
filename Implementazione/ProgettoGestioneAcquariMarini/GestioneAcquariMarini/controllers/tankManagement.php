@@ -2,11 +2,65 @@
 
 class tankManagement
 {
-    private $tankManagementModel;
+    private $tankManagementModel = null;
+    private $tankValidatioModel = null;
+    private $arrayTank = null;
 
     public function __construct(){
         require_once "GestioneAcquariMarini/models/tankModel.php";
-        $this->tankManagementModel = new tankModel();
+        require_once "GestioneAcquariMarini/models/tankValidation.php";
+        $this->tankValidatioModel = new TankValidation();
+        $this->tankManagementModel = new TankModel();
+    }
+
+    public function requirePageModifyForm($name){
+        $title = "Modifica vasca";
+        $nameButton = "Modifica";
+        $path = URL . "tankManagement/modifyTank/".$name;
+        $stringErrors = $this->tankValidatioModel->stringErrors;
+
+        if($this->arrayTank!=null){
+            $tankName = $this->arrayTank["tankName"];
+            $calcium = $this->arrayTank["calcium"];
+            $magnesium = $this->arrayTank["magnesium"];
+            $kh = $this->arrayTank["kh"];
+            $waterChange = $this->arrayTank["waterChange"];
+            $liter = $this->arrayTank["liter"];
+        }else{
+            $tankToModify = $this->tankManagementModel->getByName($name);
+            $tankName = $tankToModify[0]["nome"];
+            $magnesium = $tankToModify[0]["calcio"];
+            $calcium = $tankToModify[0]["magnesio"];
+            $kh = $tankToModify[0]["kh"];
+            $waterChange = $tankToModify[0]["ultimo_cambio_acqua"];
+            $liter = $tankToModify[0]["Litri"];
+        }
+
+        require "GestioneAcquariMarini/views/_templates/header.php";
+        require "GestioneAcquariMarini/views/_templates/menu.php";
+        require "GestioneAcquariMarini/views/gestioneAcquari/tank/tankManagement.php";
+        require "GestioneAcquariMarini/views/_templates/footer.php";
+    }
+
+    public function requirePageAddForm(){
+        $title = "Aggiungi vasca";
+        $nameButton = "Aggiungi";
+        $path = URL."tankManagement/addTank";
+        $stringErrors = $this->tankValidatioModel->stringErrors;
+
+        if($this->arrayTank!=null){
+            $tankName = $this->arrayTank["tankName"];
+            $calcium = $this->arrayTank["calcium"];
+            $magnesium = $this->arrayTank["magnesium"];
+            $kh = $this->arrayTank["kh"];
+            $waterChange = $this->arrayTank["waterChange"];
+            $liter = $this->arrayTank["liter"];
+        }
+
+        require "GestioneAcquariMarini/views/_templates/header.php";
+        require "GestioneAcquariMarini/views/_templates/menu.php";
+        require "GestioneAcquariMarini/views/gestioneAcquari/tank/tankManagement.php";
+        require "GestioneAcquariMarini/views/_templates/footer.php";
     }
 
     public function index(){
@@ -27,14 +81,7 @@ class tankManagement
     public function formAddTank(){
         session_start();
         if($_SESSION["authentification"] == true){
-            $title = "Aggiungi vasca";
-            $nameButton = "Aggiungi";
-            $path = URL."tankManagement/addTank";
-
-            require "GestioneAcquariMarini/views/_templates/header.php";
-            require "GestioneAcquariMarini/views/_templates/menu.php";
-            require "GestioneAcquariMarini/views/gestioneAcquari/tank/tankManagement.php";
-            require "GestioneAcquariMarini/views/_templates/footer.php";
+            $this->requirePageAddForm();
         }else{
             header("Location:".URL);
         }
@@ -44,38 +91,34 @@ class tankManagement
     {
         session_start();
         if ($_SESSION["authentification"] == true) {
-            $title = "Modifica vasca";
-            $nameButton = "Modifica";
-            $path = URL . "tankManagement/modifyTank/".$name;
-
-            $tankToModify = $this->tankManagementModel->getByName($name);
-            $tankName = $tankToModify[0]["nome"];
-            $magnesio = $tankToModify[0]["calcio"];
-            $calcio = $tankToModify[0]["magnesio"];
-            $kh = $tankToModify[0]["kh"];
-            $waterChange = $tankToModify[0]["ultimo_cambio_acqua"];
-            $liter = $tankToModify[0]["Litri"];
-
-            require "GestioneAcquariMarini/views/_templates/header.php";
-            require "GestioneAcquariMarini/views/_templates/menu.php";
-            require "GestioneAcquariMarini/views/gestioneAcquari/tank/tankManagement.php";
-            require "GestioneAcquariMarini/views/_templates/footer.php";
-
+            $this->requirePageModifyForm($name);
         } else {
             header("Location:" . URL);
         }
     }
 
     public function modifyTank($name){
+        $this->arrayTank = $this->getTankArray();
+        if($this->tankValidatioModel->validation($this->arrayTank)){
+            $this->tankManagementModel->modify($this->arrayTank, $name);
+            $this->arrayTank = null;
+            header("Location:" . URL . "tankManagement");
+        }else{
+            $this->requirePageAddForm();
+        }
         $tank = $this->getValidatedValues();
-        $this->tankManagementModel->modify($tank, $name);
-        header("Location:" . URL . "tankManagement");
+
     }
 
     public function addTank(){
-        $tank = $this->getValidatedValues();
-        $this->tankManagementModel->add($tank);
-        header("Location:" . URL . "tankManagement");
+        $this->arrayTank = $this->getTankArray();
+        if($this->tankValidatioModel->validation($this->arrayTank)){
+            $this->tankManagementModel->add($this->arrayTank);
+            $this->arrayTank = null;
+            header("Location:" . URL . "tankManagement");
+        }else{
+            $this->requirePageAddForm();
+        }
     }
 
     public function delete($bowl){
@@ -83,17 +126,15 @@ class tankManagement
         header("Location:" . URL . "tankManagement");
     }
 
-    private function getValidatedValues(){
-        require "GestioneAcquariMarini/controllers/validator.php";
-        $validator = new Validator();
-        $name = $validator->validatePrimaryKey($_POST["tankName"]);
-        $magnesio = $validator->validateInt($_POST["magnesio"]);
-        $calcio = $validator->validateInt($_POST["calcio"]);
-        $kh = $validator->validateInt($_POST["kh"]);
-        $waterChange = $validator->validateDate($_POST["waterChange"]);
-        $liter = $validator->validateInt($_POST["liter"]);
+    private function getTankArray(){
+        $name = $_POST["tankName"];
+        $magnesium = $_POST["magnesium"];
+        $calcium = $_POST["calcium"];
+        $kh = $_POST["kh"];
+        $waterChange = $_POST["waterChange"];
+        $liter = $_POST["liter"];
 
-        $tank = array($name, $magnesio, $calcio, $kh, $waterChange, $liter);
+        $tank = array("tankName"=>$name, "magnesium"=>$magnesium, "calcium"=>$calcium, "kh"=>$kh, "waterChange"=>$waterChange, "liter"=>$liter);
         return $tank;
     }
 

@@ -1,6 +1,6 @@
 <div class="containerDiv">
     <h1 align="center" style="margin: 5%">Gestione Vasche</h1>
-    <a href="<?php echo URL; ?>tankManagement/formaAddTank" class="btn btn-primary btn-sm">Aggiungi vasca</a>
+    <a href="<?php echo URL; ?>tankManagement/formAddTank" class="btn btn-primary btn-sm">Aggiungi vasca</a>
     <br><br>
     <div class="table-responsive">
         <table class="table table-bordered">

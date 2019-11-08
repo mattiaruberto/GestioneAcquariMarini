@@ -45,8 +45,8 @@ class UserModel
 
     public function delete($email)
     {
-        $deleteUser = "DELETE FROM vasca WHERE email=:email";
-        $this->statement = $this->connection->prepare($deleteUser);
+        $deleteUser = "DELETE FROM utente WHERE email=:email";
+        $this->statement = $this->connAccess->prepare($deleteUser);
         $this->statement->bindParam(':email', $email, PDO::PARAM_STR);
         $this->statement->execute();
     }

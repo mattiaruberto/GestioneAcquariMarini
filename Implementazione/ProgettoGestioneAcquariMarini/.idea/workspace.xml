@@ -29,15 +29,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\models" />
+      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs" />
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\media\img" />
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\js" />
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\css" />
-      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\views\gestioneAcquari" />
-      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\views\vasche" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -92,6 +92,13 @@
       <workItem from="1571397482216" duration="9068000" />
       <workItem from="1571742852223" duration="10569000" />
       <workItem from="1571915888746" duration="9908000" />
+      <workItem from="1572002428453" duration="10466000" />
+      <workItem from="1572956167557" duration="1326000" />
+      <workItem from="1572958292035" duration="21000" />
+      <workItem from="1572958331547" duration="8301000" />
+      <workItem from="1572971877804" duration="796000" />
+      <workItem from="1573132002910" duration="8140000" />
+      <workItem from="1573215863964" duration="10488000" />
     </task>
     <servers />
   </component>
