@@ -20,23 +20,23 @@
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Magnesio</label>
-            <input class="form-control" type="number" id="magnesium" name="magnesium" onchange="validateMagnesium()" value="<?php if(isset($magnesium)){echo $magnesium;} ?>"/>
+            <input class="form-control" type="number" id="magnesium" name="magnesium" onchange="validateNumber(this, 0, 3000)" value="<?php if(isset($magnesium)){echo $magnesium;} ?>"/>
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Calcio</label>
-            <input class="form-control" type="number" id="calcium" name="calcium" onchange="validateCalcium()" value="<?php if(isset($calcium)){echo $calcium;} ?>"/>
+            <input class="form-control" type="number" id="calcium" name="calcium" onchange="validateNumber(this, 0, 1000)" value="<?php if(isset($calcium)){echo $calcium;} ?>"/>
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Kh</label>
-            <input class="form-control" type="number" id="kh" name="kh" onchange="validateKh()" value="<?php if(isset($kh)){echo $kh;} ?>"/>
+            <input class="form-control" type="number" id="kh" name="kh" onchange="validateNumber(this, 0, 20)" value="<?php if(isset($kh)){echo $kh;} ?>"/>
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Cambio d'acqua</label>
-            <input class="form-control" type="date" id="waterChange" onchange="validateDate()" value="<?php if(isset($waterChange)){echo $waterChange;} ?>" name="waterChange"/>
+            <input class="form-control" type="date" id="waterChange" onchange="validateDate(this)" value="<?php if(isset($waterChange)){echo $waterChange;} ?>" name="waterChange"/>
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Litri</label>
-            <input class="form-control" type="number" id="liter" name="liter" onchange="validateLiter()" value="<?php if(isset($liter)){echo $liter;} ?>"/>
+            <input class="form-control" type="number" id="liter" name="liter" onchange="validateNumber(this, 0, 1000000)" value="<?php if(isset($liter)){echo $liter;} ?>"/>
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary btn-sm" value="<?php echo $nameButton ?>"/>

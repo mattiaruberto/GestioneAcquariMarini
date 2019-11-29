@@ -1,5 +1,5 @@
 <?php
-class PasswordModel
+class passwordModel
 {
     private $connAccess;
     private $statement;

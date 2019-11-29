@@ -254,7 +254,7 @@ class SMTP
 
             return;
         }
-        switch ($this->Debugoutput) {
+        /*switch ($this->Debugoutput) {
             case 'error_log':
                 //Don't output, just log
                 error_log($str);
@@ -265,7 +265,7 @@ class SMTP
                     preg_replace('/[\r\n]+/', '', $str),
                     ENT_QUOTES,
                     'UTF-8'
-                ), "<br>\n";*/
+                ), "<br>\n";
                 //break;
             case 'echo':
             default:
@@ -283,7 +283,7 @@ class SMTP
                     )
                 ),
                 "\n";
-        }
+        }*/
     }
 
     /**

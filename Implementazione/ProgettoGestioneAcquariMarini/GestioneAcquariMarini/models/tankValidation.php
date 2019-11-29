@@ -3,23 +3,26 @@
 class TankValidation
 {
     private $validationFunction;
-    public $stringErrors;
+    public $stringErrors = null;
 
     public function __construct()
     {
-        require_once "validationFunction.php";
+        require_once "GestioneAcquariMarini/libs/ValidationFunction/validationFunction.php";
         $this->validationFunction = new ValidationFunction();
     }
 
-    public function validation($tank){
+    public function validation($tank, $name)
+    {
         $validationOK = true;
         $this->stringErrors = "";
-        if($this->validationFunction->validateTankName($tank["tankName"]) == ValidationFunction::ALREDY_EXIST){
-            $this->stringErrors = "Il nome della vasca esiste già";
-            $validationOK = false;
-        }else if($this->validationFunction->validateTankName($tank["tankName"]) == ValidationFunction::INCORRECT_NAME){
-            $this->stringErrors = "Il nome della vasca è sbagliato";
-            $validationOK = false;
+        if ($tank["tankName"] != $name || $name == null) {
+            if ($this->validationFunction->validateTankName($tank["tankName"]) == ValidationFunction::ALREDY_EXIST) {
+                $this->stringErrors = "Il nome della vasca esiste già";
+                $validationOK = false;
+            } else if ($this->validationFunction->validateTankName($tank["tankName"]) == ValidationFunction::INCORRECT_INPUT) {
+                $this->stringErrors = "Il nome della vasca è sbagliato";
+                $validationOK = false;
+            }
         }
         if(!$this->validationFunction->validateInt($tank["magnesium"], 0, 3000)){
             $this->stringErrors .= "<br>Il valore del magnesio è sbagliato";

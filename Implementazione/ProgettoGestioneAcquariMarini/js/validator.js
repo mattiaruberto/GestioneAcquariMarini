@@ -1,52 +1,25 @@
-function validateNumber(number, min, max){
+function validateNumber(selectObject, min, max){
+    var number = selectObject.value;
     var reg = /^[0-9]/i;
     if (reg.test(number) && number >= min && number <= max) {
-        return true;
+        selectObject.style.border = "1px solid green";
     } else {
-        return false;
+        selectObject.style.border = "1px solid red";
     }
 }
 
-function validateTankName(){
-    var tankName = document.getElementById("tankName").value;
+function validateTankName(selectObject){
+    var tankName = selectObject.value;
     var reg = /^[0-9a-z_-]+$/i;
     if (reg.test(tankName) && tankName.length > 0 && tankName.length <= 45 ) {
-        document.getElementById("tankName").style.border = "1px solid green";
+        selectObject.style.border = "1px solid green";
     } else {
-        document.getElementById("tankName").style.border = "1px solid red";
+        selectObject.style.border = "1px solid red";
     }
 }
 
-function validateMagnesium(){
-    var magnesium = document.getElementById("magnesium").value;
-    if(!validateNumber(magnesium, 0, 3000)){
-        document.getElementById("magnesium").style.border = "1px solid red";
-    }else{
-        document.getElementById("magnesium").style.border = "1px solid green";
-    }
-}
-
-function validateCalcium(){
-    var calcium = document.getElementById("calcium").value;
-    if(!validateNumber(calcium, 0, 1000)){
-        document.getElementById("calcium").style.border = "1px solid red";
-    }else{
-        document.getElementById("calcium").style.border = "1px solid green";
-    }
-}
-
-function validateKh(){
-    var kh = document.getElementById("kh").value;
-    if(!validateNumber(kh, 0, 20)){
-        document.getElementById("kh").style.border = "1px solid red";
-        confirmValidate = false;
-    }else{
-        document.getElementById("kh").style.border = "1px solid green";
-    }
-}
-
-function validateDate(){
-    var date = document.getElementById("waterChange").value;
+function validateDate(selectObject){
+    var date = selectObject.value;
     var validateDate = false;
     if (date.length == 10) {
         year = date.substring(0, 4);
@@ -77,53 +50,58 @@ function validateDate(){
         }
     }
     if(validateDate){
-        document.getElementById("waterChange").style.border = "1px solid green";
+        selectObject.style.border = "1px solid green";
     }else{
-        document.getElementById("waterChange").style.border = "1px solid red";
+        selectObject.style.border = "1px solid red";
     }
 }
 
-function validateLiter(){
-    var liter = document.getElementById("liter").value;
-    if(!validateNumber(liter, 0, 1000000)){
-        document.getElementById("liter").style.border = "1px solid red";
-    }else{
-        document.getElementById("liter").style.border = "1px solid green";
-    }
-}
-
-function validateString(string,characterMin,characterMax){
-    var reg = /^[a-zèéëàáäìíòöóüùú\s]+$/i;
-    if(string.length >= characterMin && string.length <= characterMax){
-        if(!reg.test(string)){
-            return false;
-        }else{
-            return true;
-        }
-    }else{
-        return false;
-    }
-}
-
-function validatePhone(phoneNumber){
+function validatePhone(selectObject){
+    var phoneNumber = selectObject.value;
     var reg = /^[0-9\s+#]+$/i;
-    if(phoneNumber.length >= 9 && phoneNumber.length <= 30){
-        if(!reg.test(phoneNumber)){
-            return false;
-        }else{
-            return true;
-        }
+    if(phoneNumber.length >= 9 && phoneNumber.length <= 30 && reg.test(phoneNumber)){
+        selectObject.style.border = "1px solid green";
     }else{
-        return false;
+        selectObject.style.border = "1px solid red";
     }
 }
 
-function validateEmail(){
-    var email = document.getElementById("email").value;
+function validateEmail(selectObject){
+    var email = selectObject.value;
     var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (reg.test(email) || email.length > 0) {
-        document.getElementById("email").style.border = "1px solid green";
+    if (reg.test(email) && email.length > 0) {
+        selectObject.style.border = "1px solid green";
     } else {
-        document.getElementById("email").style.border = "1px solid red";
+        selectObject.style.border = "1px solid red";
     }
 }
+
+function validateString(selectObject,characterMin,characterMax){
+    var string = selectObject.value;
+    var reg = /^[a-zèéëàáäìíòöóüùú\s]+$/i;
+    if(string.length >= characterMin && string.length <= characterMax && reg.test(string)){
+        selectObject.style.border = "1px solid green";
+    }else{
+        selectObject.style.border = "1px solid red";
+    }
+}
+
+function validateSelectChangePassword(object){
+    var select = object.value;
+    if(select == "Da cambiare" || select == "Non cambiare"){
+        object.style.border = "1px solid green";
+    }else{
+        object.style.border = "1px solid red";
+    }
+}
+
+function validateSelectPermission(object){
+    var select = object.value;
+    if(select == "Admin" || select == "User"){
+        object.style.border = "1px solid green";
+    }else{
+        object.style.border = "1px solid green";
+    }
+}
+
+

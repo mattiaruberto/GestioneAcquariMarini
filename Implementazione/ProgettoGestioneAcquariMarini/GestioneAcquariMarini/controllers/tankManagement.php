@@ -1,5 +1,4 @@
 <?php
-
 class tankManagement
 {
     private $tankManagementModel = null;
@@ -7,18 +6,22 @@ class tankManagement
     private $arrayTank = null;
 
     public function __construct(){
+        session_start();
         require_once "GestioneAcquariMarini/models/tankModel.php";
         require_once "GestioneAcquariMarini/models/tankValidation.php";
         $this->tankValidatioModel = new TankValidation();
         $this->tankManagementModel = new TankModel();
     }
 
-    public function requirePageModifyForm($name){
-        $title = "Modifica vasca";
-        $nameButton = "Modifica";
-        $path = URL . "tankManagement/modifyTank/".$name;
-        $stringErrors = $this->tankValidatioModel->stringErrors;
-
+    public function requirePageForm($pageInformation){
+        $title = $pageInformation[0];
+        $nameButton = $pageInformation[1];
+        $path = $pageInformation[2];
+        $stringErrors = $pageInformation[3];
+        $name = null;
+        if(count($pageInformation) > 4){
+            $name = $pageInformation[4];
+        }
         if($this->arrayTank!=null){
             $tankName = $this->arrayTank["tankName"];
             $calcium = $this->arrayTank["calcium"];
@@ -26,7 +29,7 @@ class tankManagement
             $kh = $this->arrayTank["kh"];
             $waterChange = $this->arrayTank["waterChange"];
             $liter = $this->arrayTank["liter"];
-        }else{
+        }else if($name != null){
             $tankToModify = $this->tankManagementModel->getByName($name);
             $tankName = $tankToModify[0]["nome"];
             $magnesium = $tankToModify[0]["calcio"];
@@ -42,33 +45,9 @@ class tankManagement
         require "GestioneAcquariMarini/views/_templates/footer.php";
     }
 
-    public function requirePageAddForm(){
-        $title = "Aggiungi vasca";
-        $nameButton = "Aggiungi";
-        $path = URL."tankManagement/addTank";
-        $stringErrors = $this->tankValidatioModel->stringErrors;
-
-        if($this->arrayTank!=null){
-            $tankName = $this->arrayTank["tankName"];
-            $calcium = $this->arrayTank["calcium"];
-            $magnesium = $this->arrayTank["magnesium"];
-            $kh = $this->arrayTank["kh"];
-            $waterChange = $this->arrayTank["waterChange"];
-            $liter = $this->arrayTank["liter"];
-        }
-
-        require "GestioneAcquariMarini/views/_templates/header.php";
-        require "GestioneAcquariMarini/views/_templates/menu.php";
-        require "GestioneAcquariMarini/views/gestioneAcquari/tank/tankManagement.php";
-        require "GestioneAcquariMarini/views/_templates/footer.php";
-    }
-
     public function index(){
-        session_start();
         if($_SESSION["authentification"] == true){
-            $tankManagementModel = new tankModel();
             $aquariums = $this->tankManagementModel->getAll();
-
             require "GestioneAcquariMarini/views/_templates/header.php";
             require "GestioneAcquariMarini/views/_templates/menu.php";
             require "GestioneAcquariMarini/views/gestioneAcquari/tank/index.php";
@@ -79,9 +58,15 @@ class tankManagement
     }
 
     public function formAddTank(){
-        session_start();
         if($_SESSION["authentification"] == true){
-            $this->requirePageAddForm();
+            if($_SESSION["type"] == "Admin") {
+                $stringErrors = $this->tankValidatioModel->stringErrors;
+                $path = URL . "tankManagement/addTank";
+                $pageInformation = array("Aggiungi vasca", "Aggiungi", $path, $stringErrors);
+                $this->requirePageForm($pageInformation);
+            }else{
+                header("Location:" . URL . "home");
+            }
         }else{
             header("Location:".URL);
         }
@@ -89,9 +74,11 @@ class tankManagement
 
     public function formModifyTank($name)
     {
-        session_start();
         if ($_SESSION["authentification"] == true) {
-            $this->requirePageModifyForm($name);
+            $path = URL . "tankManagement/modifyTank/".$name;
+            $stringErrors = $this->tankValidatioModel->stringErrors;
+            $pageInformation = array("Modifica vasca", "Modifica", $path, $stringErrors, $name);
+            $this->requirePageForm($pageInformation);
         } else {
             header("Location:" . URL);
         }
@@ -99,25 +86,33 @@ class tankManagement
 
     public function modifyTank($name){
         $this->arrayTank = $this->getTankArray();
-        if($this->tankValidatioModel->validation($this->arrayTank)){
+        if($this->tankValidatioModel->validation($this->arrayTank, $name)){
             $this->tankManagementModel->modify($this->arrayTank, $name);
             $this->arrayTank = null;
             header("Location:" . URL . "tankManagement");
         }else{
-            $this->requirePageAddForm();
+            $path = URL . "tankManagement/modifyTank/".$name;
+            $stringErrors = $this->tankValidatioModel->stringErrors;
+            $pageInformation = array("Modifica vasca", "Modifica", $path, $stringErrors, $name);
+            $this->requirePageForm($pageInformation);
         }
-        $tank = $this->getValidatedValues();
-
     }
 
     public function addTank(){
-        $this->arrayTank = $this->getTankArray();
-        if($this->tankValidatioModel->validation($this->arrayTank)){
-            $this->tankManagementModel->add($this->arrayTank);
-            $this->arrayTank = null;
-            header("Location:" . URL . "tankManagement");
+        if($_SESSION["type"] == "Admin") {
+            $this->arrayTank = $this->getTankArray();
+            if ($this->tankValidatioModel->validation($this->arrayTank, null)) {
+                $this->tankManagementModel->add($this->arrayTank);
+                $this->arrayTank = null;
+                header("Location:" . URL . "tankManagement");
+            } else {
+                $stringErrors = $this->tankValidatioModel->stringErrors;
+                $path = URL . "tankManagement/addTank";
+                $pageInformation = array("Aggiungi vasca", "Aggiungi", $path, $stringErrors);
+                $this->requirePageForm($pageInformation);
+            }
         }else{
-            $this->requirePageAddForm();
+            header("Location:" . URL . "home");
         }
     }
 

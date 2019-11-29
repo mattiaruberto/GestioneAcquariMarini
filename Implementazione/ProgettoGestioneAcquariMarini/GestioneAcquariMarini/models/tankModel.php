@@ -1,13 +1,10 @@
 <?php
 
 class TankModel{
-
     private $connection;
     private $statement;
 
-
-    public function __construct()
-    {
+    public function __construct(){
         require_once "database.php";
         $this->connection = new Database("gestioneacquarimarini");
     }
@@ -53,20 +50,19 @@ class TankModel{
     }
 
     public function modify($tank, $name){
-        $modifyTank = "UPDATE vasca SET nome=:tankName, calcio=:calcio,magnesio=:magnesio,kh=:kh,ultimo_cambio_acqua=:waterChange,Litri=:liter WHERE nome=:orginalName";
+        $modifyTank = "UPDATE vasca SET nome=:tankName, calcio=:calcium,magnesio=:magnesium,kh=:kh,ultimo_cambio_acqua=:waterChange,Litri=:liter WHERE nome=:orginalName";
         $this->statement = $this->connection->prepare($modifyTank);
         $this->statement->bindParam(':orginalName', $name , PDO::PARAM_STR);
-        $this->statement->bindParam(':tankName', $tank[0] , PDO::PARAM_STR);
-        $this->statement->bindParam(':calcio', $tank[1] , PDO::PARAM_STR);
-        $this->statement->bindParam(':magnesio', $tank[2] , PDO::PARAM_STR);
-        $this->statement->bindParam(':kh', $tank[3] , PDO::PARAM_STR);
-        $this->statement->bindParam(':waterChange', $tank[4] , PDO::PARAM_STR);
-        $this->statement->bindParam(':liter', $tank[5] , PDO::PARAM_STR);
+        $this->statement->bindParam(':tankName', $tank['tankName'] , PDO::PARAM_STR);
+        $this->statement->bindParam(':calcium', $tank['calcium'] , PDO::PARAM_STR);
+        $this->statement->bindParam(':magnesium', $tank['magnesium'] , PDO::PARAM_STR);
+        $this->statement->bindParam(':kh', $tank['kh'] , PDO::PARAM_STR);
+        $this->statement->bindParam(':waterChange', $tank['waterChange'] , PDO::PARAM_STR);
+        $this->statement->bindParam(':liter', $tank['liter'] , PDO::PARAM_STR);
         $this->statement->execute();
     }
 
-    private function executeAndFetchStatement($select)
-    {
+    private function executeAndFetchStatement($select){
         $this->statement = $this->connection->prepare($select);
         $this->statement->execute();
         $result = $this->statement->fetchAll(PDO::FETCH_ASSOC);

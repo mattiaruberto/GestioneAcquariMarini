@@ -8,6 +8,6 @@
         <script src="<?php echo PATH; ?>js/jquery.min.js"></script>
         <script src="<?php echo PATH; ?>js/bootstrap.min.js"></script>
         <script src="<?php echo PATH; ?>js/validator.js"></script>
-        <script src="<?php echo PATH; ?>js/generalFunction.js"></script>
+        <script src="<?php echo PATH; ?>js/generalMethod.js"></script>
     </head>
     <body>

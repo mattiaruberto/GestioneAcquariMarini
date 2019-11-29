@@ -12,41 +12,42 @@
         <li class="list-group-item">Cambio d'acqua: deve essere una data, la date non può essere futura.</li>
         <li class="list-group-item">Litri: deve essere un numero intero.</li>
     </ul>
+    <p style='color: red;margin-left: 2%;'><?php if(isset($stringErrors)){ echo $stringErrors; } ?></p>
     <form id="formAddUser" action="<?php echo $path; ?>" method="POST">
         <div class="form-group">
             <label for="formGroupExampleInput">Email</label>
-            <input class="form-control" type="text" id="email" name="email" value="<?php if(isset($tankName)){echo $tankName;} ?>"/>
+            <input class="form-control" type="text" id="email" name="email" onchange="validateEmail(this)" value="<?php if(isset($userEmail)){echo $userEmail;} ?>"/>
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Nome</label>
-            <input class="form-control" type="text" id="name" name="name" value="<?php if(isset($magnesio)){echo $magnesio;} ?>"/>
+            <input class="form-control" type="text" id="name" name="name" onchange="validateString(this, 0, 45)" value="<?php if(isset($userName)){echo $userName;} ?>"/>
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Cognome</label>
-            <input class="form-control" type="text" id="surname" name="surname" value="<?php if(isset($calcio)){echo $calcio;} ?>"/>
+            <input class="form-control" type="text" id="surname" name="surname" onchange="validateString(this, 0, 45)" value="<?php if(isset($userSurname)){echo $userSurname;} ?>"/>
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Tipo</label>
-            <select class="form-control" id="type" name="type" value="<?php if(isset($kh)){echo $kh;} ?>">
+            <select class="form-control" id="type" name="type" onchange="validateSelectPermission(this)">
                 <option></option>
-                <option>Admin</option>
-                <option>User</option>
+                <option <?php if(isset($userType) && $userType == 'Admin'){echo 'selected';} ?> >Admin</option>
+                <option <?php if(isset($userType) && $userType == 'User'){echo 'selected';} ?>>User</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput">Numerto Telefonico</label>
-            <input class="form-control" type="text" id="phoneNumber" name="phoneNumber" value="<?php if(isset($waterChange)){echo $waterChange;} ?>"/>
+            <label for="formGroupExampleInput">Numero Telefonico</label>
+            <input class="form-control" type="text" id="phoneNumber" name="phoneNumber" onchange="validatePhone(this)" value="<?php if(isset($userPhoneNumber)){echo $userPhoneNumber;} ?>"/>
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Cambio Password</label>
-            <select class="form-control" id="passwordChange" name="passwordChange" value="<?php if(isset($liter)){echo $liter;} ?>">
+            <select class="form-control" id="passwordChange" name="passwordChange" onchange="validateSelectChangePassword(this)">
                 <option></option>
-                <option>Cambiata</option>
-                <option>Da cambiare</option>
+                <option <?php if(isset($userPasswordChange) && $userPasswordChange == 0){echo 'selected';} ?> ><?php echo TOCHANGEPASSWORD ?></option>
+                <option <?php if(isset($userPasswordChange) && $userPasswordChange == 1){echo 'selected';} ?> ><?php echo NOTCHANGEPASSWORD ?></option>
             </select>
         </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary btn-sm" value="<?php echo $nameButton ?>"/>
+        </div>
     </form>
-    <div class="form-group">
-        <input type="button" class="btn btn-primary btn-sm" onclick="validateUser()" value="<?php echo $nameButton ?>"/>
-    </div>
 </div>

@@ -13,6 +13,20 @@
       <executable />
     </execution>
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -32,12 +46,15 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs\PHPMailer" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini" />
+      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs\ScriptTankValuesControl" />
+      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs\ValidationFunction" />
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\models" />
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs" />
-      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\media\img" />
-      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\js" />
-      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -52,13 +69,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.validator.js">
+    <configuration name="validator.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/js/validator.js" working-dir="$PROJECT_DIR$/js">
+      <method v="2" />
+    </configuration>
     <configuration name="gestioneAcquari" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner directory="$PROJECT_DIR$/GestioneAcquariMarini/views/gestioneAcquari" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.validator.js" />
         <item itemvalue="PHPUnit.gestioneAcquari" />
       </list>
     </recent_temporary>
@@ -99,6 +120,19 @@
       <workItem from="1572971877804" duration="796000" />
       <workItem from="1573132002910" duration="8140000" />
       <workItem from="1573215863964" duration="10488000" />
+      <workItem from="1573561045147" duration="11769000" />
+      <workItem from="1573734091085" duration="10778000" />
+      <workItem from="1573749731472" duration="11027000" />
+      <workItem from="1574165633628" duration="2640000" />
+      <workItem from="1574234782010" duration="25000" />
+      <workItem from="1574338395152" duration="21237000" />
+      <workItem from="1574759727363" duration="18223000" />
+      <workItem from="1574792819529" duration="15000" />
+      <workItem from="1574806249505" duration="847000" />
+      <workItem from="1574811870006" duration="594000" />
+      <workItem from="1574834330803" duration="9000" />
+      <workItem from="1574943459010" duration="5786000" />
+      <workItem from="1575029539010" duration="740000" />
     </task>
     <servers />
   </component>

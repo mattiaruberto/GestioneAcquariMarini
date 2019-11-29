@@ -1,8 +1,7 @@
 <div class="containerDiv">
     <h1 style="margin-top: 3%; margin-bottom: 3%" align="center">Pagina Gestione Utenti</h1>
     <a href="<?php echo URL; ?>userManagement/formAddUser" class="btn btn-primary btn-sm">Aggiungi utente</a>
-    <br>
-    <h3 id="addUser">Tabella Utenti</h3>
+    <br><br>
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>
@@ -21,14 +20,14 @@
             <?php foreach ($users as $user): ?>
                 <tr>
                     <?php $emailUser = $user["email"]; ?>
-                    <?php foreach ($user as $row): ?>
-                        <td><?php echo $row; ?></td>
+                    <?php foreach ($user as $key => $row): ?>
+                        <td><?php if($key == "cambioPassword"){ if($row == 0){ echo TOCHANGEPASSWORD;}else{ echo NOTCHANGEPASSWORD; } }else{ echo $row;} ?></td>
                     <?php endforeach; ?>
                     <td>
-                        <a href="<?php echo URL; ?>tankManagement/formModifyTank/<?php echo $emailUser; ?>" class="btn btn-primary btn-sm" >Modifica</a>
+                        <a href="<?php echo URL; ?>userManagement/formModifyUser/<?php echo $emailUser; ?>" class="btn btn-primary btn-sm" >Modifica</a>
                     </td>
                     <td>
-                        <button class="btn btn-primary btn-sm" onclick="confirmDeleteUser('<?php echo $emailUser; ?>', '<?php echo URL; ?>')">Rimuovi</button>
+                        <button class="btn btn-primary btn-sm" <?php if($_SESSION["email"] == $emailUser){ echo "disabled"; } ?> onclick="confirmDeleteUser('<?php echo $emailUser; ?>', '<?php echo URL; ?>')">Rimuovi</button>
                     </td>
                 </tr>
             <?php endforeach; ?>
