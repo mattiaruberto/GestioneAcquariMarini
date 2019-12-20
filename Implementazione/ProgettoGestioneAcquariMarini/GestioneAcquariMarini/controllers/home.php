@@ -1,7 +1,13 @@
 <?php
 
-class Home
-{
+/**
+ * Classe home che rappresenta la pagina riassuntiva.
+ */
+class Home{
+    /**
+     * Metodo index della pagina riassuntiva, prende tutti le vasche e le mette nella variabile che poi verrà
+     * utilizzata per riempire la tabella.
+     */
     public function index(){
         session_start();
         if($_SESSION["authentification"] == true){
@@ -19,5 +25,3 @@ class Home
         }
     }
 }
-
-?>

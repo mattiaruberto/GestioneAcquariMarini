@@ -14,23 +14,23 @@
                 <label for="formGroupExampleInput">Sesso</label>
                 <select class="form-control" id="sex" name="sex" onchange="validateSelectPermission(this)">
                     <option></option>
-                    <option <?php if(isset($habitantManagement["sex"]) && $habitantManagement["sex"] == 'M'){echo 'selected';} ?>>M</option>
-                    <option <?php if(isset($habitantManagement["sex"]) && $habitantManagement["sex"] == 'F'){echo 'selected';} ?>>F</option>
-                    <option <?php if(isset($habitantManagement["sex"]) && $habitantManagement["sex"] == 'Altro'){echo 'selected';} ?>>Altro</option>
+                    <option <?php if(isset($habitantManagement[HABITANT_SEX]) && $habitantManagement[HABITANT_SEX] == 'M'){echo 'selected';} ?>>M</option>
+                    <option <?php if(isset($habitantManagement[HABITANT_SEX]) && $habitantManagement[HABITANT_SEX] == 'F'){echo 'selected';} ?>>F</option>
+                    <option <?php if(isset($habitantManagement[HABITANT_SEX]) && $habitantManagement[HABITANT_SEX] == 'Altro'){echo 'selected';} ?>>Altro</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput">Tipo</label>
                 <select class="form-control" id="type" name="type" onchange="validateSelectPermission(this)">
                     <option></option>
-                    <option <?php if(isset($habitantManagement["type"]) && $habitantManagement["type"] == 'Pesce'){echo 'selected';} ?>>Pesce</option>
-                    <option <?php if(isset($habitantManagement["type"]) && $habitantManagement["type"] == 'Crostaceo'){echo 'selected';} ?>>Crostaceo</option>
-                    <option <?php if(isset($habitantManagement["type"]) && $habitantManagement["type"] == 'Corallo'){echo 'selected';} ?>>Corallo</option>
+                    <option <?php if(isset($habitantManagement[HABITANT_TYPE]) && $habitantManagement[HABITANT_TYPE] == 'Pesce'){echo 'selected';} ?>>Pesce</option>
+                    <option <?php if(isset($habitantManagement[HABITANT_TYPE]) && $habitantManagement[HABITANT_TYPE] == 'Crostaceo'){echo 'selected';} ?>>Crostaceo</option>
+                    <option <?php if(isset($habitantManagement[HABITANT_TYPE]) && $habitantManagement[HABITANT_TYPE] == 'Corallo'){echo 'selected';} ?>>Corallo</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput">Numero</label>
-                <input class="form-control" type="number" id="habitantNumber" name="habitantNumber" onchange="validateNumber(this, 0, 1000)" value="<?php if(isset($habitantManagement["habitantNumber"])){echo $habitantManagement["habitantNumber"]; } ?>"/>
+                <input class="form-control" type="number" id="number" name="number" onchange="validateNumber(this, 0, 1000)" value="<?php if(isset($habitantManagement["habitantNumber"])){echo $habitantManagement["habitantNumber"]; } ?>"/>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary btn-sm" value="<?php if(isset($nameButton)){echo $nameButton;} ?>"/>

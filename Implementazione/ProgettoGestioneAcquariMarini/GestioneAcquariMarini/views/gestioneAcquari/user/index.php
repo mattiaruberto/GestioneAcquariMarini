@@ -21,7 +21,9 @@
                 <tr>
                     <?php $emailUser = $user["email"]; ?>
                     <?php foreach ($user as $key => $row): ?>
-                        <td><?php if($key == "cambioPassword"){ if($row == 0){ echo TOCHANGEPASSWORD;}else{ echo NOTCHANGEPASSWORD; } }else{ echo $row;} ?></td>
+                        <?php if($key != DB_USER_PASSWORD): ?>
+                            <td><?php if($key == "cambioPassword"){ if($row == 0){ echo TOCHANGEPASSWORD;}else{ echo NOTCHANGEPASSWORD; } }else{ echo $row;} ?></td>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                     <td>
                         <a href="<?php echo URL; ?>userManagement/formModifyUser/<?php echo $emailUser; ?>" class="btn btn-primary btn-sm" >Modifica</a>

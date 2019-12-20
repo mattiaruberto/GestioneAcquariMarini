@@ -26,7 +26,7 @@
                         <td><?php echo $row; ?></td>
                     <?php endforeach; ?>
                     <td>
-                        <a href="<?php echo URL; ?>habitantManagement/showAllHabitantsTank/<?php echo $nameBowl; ?>" class="btn btn-primary btn-sm" >Abitanti</a>
+                        <a href="<?php echo URL; ?>habitantManagement/showTankHabitants/<?php echo $nameBowl; ?>" class="btn btn-primary btn-sm" >Abitanti</a>
                     </td>
                     <td>
                         <a href="<?php echo URL; ?>tankManagement/formModifyTank/<?php echo $nameBowl; ?>" class="btn btn-primary btn-sm" >Modifica</a>

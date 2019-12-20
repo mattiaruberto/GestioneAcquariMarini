@@ -41,20 +41,21 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../modulo151/3-PropelORM" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/EventSchedule" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\EventSchedule" />
+      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs\PHPMailer" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini" />
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs\ScriptTankValuesControl" />
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs\ValidationFunction" />
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\models" />
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs\PHPMailer" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -138,6 +139,13 @@
       <workItem from="1575375340464" duration="11165000" />
       <workItem from="1575639077722" duration="2225000" />
       <workItem from="1575980379231" duration="708000" />
+      <workItem from="1575981530646" duration="8568000" />
+      <workItem from="1576064798223" duration="3000" />
+      <workItem from="1576156610379" duration="6243000" />
+      <workItem from="1576240010297" duration="23985000" />
+      <workItem from="1576441980604" duration="2563000" />
+      <workItem from="1576491455176" duration="6057000" />
+      <workItem from="1576763456056" duration="14268000" />
     </task>
     <servers />
   </component>

@@ -16,7 +16,7 @@
     <form id="formAddTanke" action="<?php echo $path; ?>" method="POST">
         <div class="form-group">
             <label for="formGroupExampleInput">Nome</label>
-            <input class="form-control" type="text" id="tankName" name="tankName" onchange="validateTankName()" value="<?php if(isset($tankName)){echo $tankName;} ?>"/>
+            <input class="form-control" type="text" id="name" name="name" onchange="validateTankName()" value="<?php if(isset($tankName)){echo $tankName;} ?>"/>
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Magnesio</label>

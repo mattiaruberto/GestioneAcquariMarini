@@ -8,7 +8,7 @@
         </div>
         <div class="form-group">
             <label>Password</label>
-            <input type="password" name="password" value="" required class="form-control"/>
+            <input type="password" name="password" required class="form-control"/>
         </div>
         <input type="submit" name="login" value="Login" class="btn btn-default" />
         <br><br>
@@ -17,8 +17,8 @@
     <button class="btn btn-primary btn-sm" onclick="changePassword()">Ho dimenticato la password</button>
 </div>
 <?php
-if(isset($_SESSION["errorRequestNewPassword"])  && $_SESSION["errorRequestNewPassword"] != 0){
-    if($_SESSION["errorRequestNewPassword"] == 1){
+if(isset($_SESSION[ERROR_REQUEST_NEW_PASSWORD])  && $_SESSION[ERROR_REQUEST_NEW_PASSWORD] != 0){
+    if($_SESSION[ERROR_REQUEST_NEW_PASSWORD] == 1){
         echo "<script type='text/javascript'>alert('La nuova password ti sarà inviata per email')</script>";
     }else{
         echo "<script type='text/javascript'>alert('L\'email inserita o è sbagliata o non è presente un account con questa email')</script>";
