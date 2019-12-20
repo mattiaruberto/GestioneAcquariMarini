@@ -36,9 +36,8 @@ class tankManagement
             $calcium = $tankToModify[0]["magnesio"];
             $kh = $tankToModify[0]["kh"];
             $waterChange = $tankToModify[0]["ultimo_cambio_acqua"];
-            $liter = $tankToModify[0]["Litri"];
+            $liter = $tankToModify[0]["litri"];
         }
-
         require "GestioneAcquariMarini/views/_templates/header.php";
         require "GestioneAcquariMarini/views/_templates/menu.php";
         require "GestioneAcquariMarini/views/gestioneAcquari/tank/tankManagement.php";

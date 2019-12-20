@@ -9,6 +9,11 @@ function confirmDeleteUser(email, url) {
         location.replace(url+'userManagement/delete/'+email);
     }
 }
+function confirmDeleteHabitants(species, sex, url) {
+    if (confirm("Sei sicuro di voler cancellare la specie: "+species+", sesso: "+sex)) {
+        location.replace(url+'habitantManagement/delete/'+species+'/'+sex);
+    }
+}
 function moveToAddTank(){
     window.location.href = URL+"tankManagement/formAddTank";
 }

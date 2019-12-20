@@ -12,7 +12,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="<?php echo URL; ?>Menu/home">Riassuntiva</a></li>
                 <li><a href="<?php echo URL; ?>Menu/tankManagement">Gestione vasche</a></li>
-                <li><a href="<?php echo URL; ?>Menu/userManagement">Gestione utenti</a></li>
+                <?php if($_SESSION["type"] == "Admin") { echo "<li><a href=".URL."Menu/userManagement>Gestione utenti</a></li>"; } ?>
                 <li><a href="<?php echo URL; ?>Menu/logout">Logout</a></li>
             </ul>
         </div>

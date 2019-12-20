@@ -1,32 +1,43 @@
 <div class="containerDiv">
     <h1 style="margin-top: 3%;" align="center">Pagina Gestione Abitanti</h1>
-    <h3 style="margin-bottom: 3%" align="center">Nome Vasca: <?php if(isset($habitants[0]["nome_vasca"])){ echo $habitants[0]["nome_vasca"]; } ?></h3>
+    <h3 style="margin-bottom: 3%" align="center">Nome Vasca: <?php if(isset($_SESSION["referencesTankName"])){ echo $_SESSION["referencesTankName"]; } ?></h3>
     <a onclick="changeStateFormHabitant()" class="btn btn-primary btn-sm">Form gestione abitante</a>
     <br><br>
-    <div id="divFormGestioneAbitante">
+    <div id="divFormGestioneAbitante"  <?php if(isset($habitantForm) && $habitantForm){ ?> style="display: block" <?php }else{ ?> style="display: none" <?php } ?>>
+        <p style='color: red;margin-left: 2%;'><?php if(isset($stringErrors)){ echo $stringErrors; } ?></p>
         <form id="formAddTanke" action="<?php echo $path; ?>" class="form-inline" method="POST">
             <div class="form-group">
                 <label for="formGroupExampleInput">Specie</label>
-                <input class="form-control" type="text" id="tankName" name="tankName" onchange="validateTankName()" value="<?php if(isset($tankName)){echo $tankName;} ?>"/>
+                <input class="form-control" type="text" id="species" name="species" onchange="validateTankName(this)" value="<?php if(isset($habitantManagement["species"])){echo $habitantManagement["species"]; } ?>"/>
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput">Sesso</label>
-                <input class="form-control" type="number" id="calcium" name="calcium" onchange="validateNumber(this, 0, 1000)" value="<?php if(isset($calcium)){echo $calcium;} ?>"/>
+                <select class="form-control" id="sex" name="sex" onchange="validateSelectPermission(this)">
+                    <option></option>
+                    <option <?php if(isset($habitantManagement["sex"]) && $habitantManagement["sex"] == 'M'){echo 'selected';} ?>>M</option>
+                    <option <?php if(isset($habitantManagement["sex"]) && $habitantManagement["sex"] == 'F'){echo 'selected';} ?>>F</option>
+                    <option <?php if(isset($habitantManagement["sex"]) && $habitantManagement["sex"] == 'Altro'){echo 'selected';} ?>>Altro</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput">Tipo</label>
-                <input class="form-control" type="number" id="kh" name="kh" onchange="validateNumber(this, 0, 20)" value="<?php if(isset($kh)){echo $kh;} ?>"/>
+                <select class="form-control" id="type" name="type" onchange="validateSelectPermission(this)">
+                    <option></option>
+                    <option <?php if(isset($habitantManagement["type"]) && $habitantManagement["type"] == 'Pesce'){echo 'selected';} ?>>Pesce</option>
+                    <option <?php if(isset($habitantManagement["type"]) && $habitantManagement["type"] == 'Crostaceo'){echo 'selected';} ?>>Crostaceo</option>
+                    <option <?php if(isset($habitantManagement["type"]) && $habitantManagement["type"] == 'Corallo'){echo 'selected';} ?>>Corallo</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput">Numero</label>
-                <input class="form-control" type="number" id="kh" name="kh" onchange="validateNumber(this, 0, 20)" value="<?php if(isset($kh)){echo $kh;} ?>"/>
+                <input class="form-control" type="number" id="habitantNumber" name="habitantNumber" onchange="validateNumber(this, 0, 1000)" value="<?php if(isset($habitantManagement["habitantNumber"])){echo $habitantManagement["habitantNumber"]; } ?>"/>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-sm" value="<?php echo $nameButton ?>"/>
+                <input type="submit" class="btn btn-primary btn-sm" value="<?php if(isset($nameButton)){echo $nameButton;} ?>"/>
             </div>
         </form>
     </div>
-    <br><br>
+    <br>
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>
@@ -50,7 +61,7 @@
                         <?php endif; ?>
                     <?php endforeach; ?>
                     <td>
-                        <a href="<?php echo URL; ?>userManagement/formModifyUser/<?php echo $species; ?>/<?php echo $sex; ?>" class="btn btn-primary btn-sm" >Modifica</a>
+                        <a href="<?php echo URL; ?>habitantManagement/modifyHabitant/<?php echo $species; ?>/<?php echo $sex; ?>" class="btn btn-primary btn-sm" >Modifica</a>
                     </td>
                     <td>
                         <button class="btn btn-primary btn-sm" onclick="confirmDeleteHabitants('<?php echo $species; ?>', '<?php echo $sex; ?>', '<?php echo URL; ?>')">Rimuovi</button>

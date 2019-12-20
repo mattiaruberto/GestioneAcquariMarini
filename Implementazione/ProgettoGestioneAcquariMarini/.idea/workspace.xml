@@ -41,20 +41,20 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../modulo151/3-PropelORM" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs\PHPMailer" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini" />
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs\ScriptTankValuesControl" />
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs\ValidationFunction" />
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\models" />
       <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\scuola\ProgettoGestioneAcquariMarini\GestioneAcquariMarini\libs\PHPMailer" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -133,6 +133,11 @@
       <workItem from="1574834330803" duration="9000" />
       <workItem from="1574943459010" duration="5786000" />
       <workItem from="1575029539010" duration="740000" />
+      <workItem from="1575030505096" duration="10684000" />
+      <workItem from="1575271693898" duration="8425000" />
+      <workItem from="1575375340464" duration="11165000" />
+      <workItem from="1575639077722" duration="2225000" />
+      <workItem from="1575980379231" duration="708000" />
     </task>
     <servers />
   </component>

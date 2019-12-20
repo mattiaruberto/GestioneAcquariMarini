@@ -59,7 +59,6 @@ class UserManagement
             $userPhoneNumber = $tankToModify[0]["numeroTelefonico"];
             $userPasswordChange = $tankToModify[0]["cambioPassword"];
         }
-
         require "GestioneAcquariMarini/views/_templates/header.php";
         require "GestioneAcquariMarini/views/_templates/menu.php";
         require "GestioneAcquariMarini/views/gestioneAcquari/user/userManagement.php";
@@ -84,24 +83,20 @@ class UserManagement
 
     public function addUser(){
         $this->arrayUser = $this->getUserArray();
+        $stringErrors = "";
         if($this->userValidationModel->validation($this->arrayUser, null)){
             if($this->sendEmailToNewUser($this->arrayUser['email'], $this->arrayUser['password'], $this->arrayUser['name'], $this->arrayUser['surname'])) {
                 $this->arrayUser['password'] = password_hash($this->arrayUser['password'], PASSWORD_DEFAULT);
                 $this->usersManagementModel->add($this->arrayUser);
                 $this->arrayUser = null;
                 header("Location:" . URL . "userManagement");
-            }else{
-                $stringErrors = "L'email non esiste<br>".$this->userValidationModel->stringErrors;
-                $path = URL."userManagement/addUser";
-                $pageInformation = array("Aggiungi utente", "Aggiungi", $path, $stringErrors);
-                $this->requirePageForm($pageInformation);
             }
-        }else{
-            $stringErrors = $this->userValidationModel->stringErrors;
-            $path = URL."userManagement/addUser";
-            $pageInformation = array("Aggiungi utente", "Aggiungi", $path, $stringErrors);
-            $this->requirePageForm($pageInformation);
+            $stringErrors .= "L'email non esiste<br>";
         }
+        $stringErrors .= $this->userValidationModel->stringErrors;
+        $path = URL."userManagement/addUser";
+        $pageInformation = array("Aggiungi utente", "Aggiungi", $path, $stringErrors);
+        $this->requirePageForm($pageInformation);
     }
 
     public function formModifyUser($email)

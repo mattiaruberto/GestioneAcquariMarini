@@ -46,4 +46,11 @@ class TankValidation
         }
         return $validationOK;
     }
+
+    public function validateTankName($tankName){
+        if ($this->validationFunction->validateTankName($tankName) == ValidationFunction::ALREDY_EXIST) {
+            return true;
+        }
+        return false;
+    }
 }

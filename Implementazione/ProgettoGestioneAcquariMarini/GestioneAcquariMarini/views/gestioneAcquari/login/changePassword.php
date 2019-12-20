@@ -9,6 +9,6 @@
             <label>Ripeti password</label>
             <input type="password" name="againNewPassword" value="" required class="form-control"/>
         </div>
-        <input type="submit" name="submitNewPassword" value="Confirm" class="btn btn-default" />
+        <input type="submit" name="submitNewPassword" value="Cambia" class="btn btn-default" />
     </form>
 </div>

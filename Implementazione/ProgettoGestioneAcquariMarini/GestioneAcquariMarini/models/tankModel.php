@@ -31,6 +31,10 @@ class TankModel{
     }
 
     public function delete($name){
+        $deleteHabitantTank = "DELETE FROM abitante WHERE nome_vasca=:nameTank";
+        $this->statement = $this->connection->prepare($deleteHabitantTank);
+        $this->statement->bindParam(':nameTank', $name , PDO::PARAM_STR);
+        $this->statement->execute();
         $deleteTank = "DELETE FROM vasca WHERE Nome=:nameTank";
         $this->statement = $this->connection->prepare($deleteTank);
         $this->statement->bindParam(':nameTank', $name , PDO::PARAM_STR);

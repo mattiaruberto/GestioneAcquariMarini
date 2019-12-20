@@ -1,15 +1,14 @@
 <?php
 class newPassword
 {
-    private $errorPassworDifferent = false;
     //funzione per controllare gli accessi
     public function index(){
         session_start();
         require 'GestioneAcquariMarini/views/_templates/header.php';
         require 'GestioneAcquariMarini/views/gestioneAcquari/login/changePassword.php';
-        if($this->errorPassworDifferent){
+        if(isset($_SESSION["newPasswordDifferent"]) && $_SESSION["newPasswordDifferent"]){
             echo "<p style='color: red; margin-left: 2%'>Le due password non corrispondono</p>";
-            $this->errorPassworDifferent = false;
+            $_SESSION["newPasswordDifferent"] = false;
         }
         require 'GestioneAcquariMarini/views/_templates/footer.php';
     }
@@ -26,8 +25,8 @@ class newPassword
                 $newPasswordModel->insertPassword($email,$password,1);
                 header("Location:" . URL . "login");
             } else {
-                echo "ab";
-                $this->errorPassworDifferent = true;
+                $_SESSION["newPasswordDifferent"] = true;
+                header("Location:" . URL . "newPassword");
             }
         }
     }
