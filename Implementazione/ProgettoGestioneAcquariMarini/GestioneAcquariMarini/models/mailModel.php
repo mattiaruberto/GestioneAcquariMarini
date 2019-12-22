@@ -26,10 +26,10 @@ class MailModel{
         $this->mail->Port = 587;
         $this->mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $this->mail->SMTPAuth = true;
-        $this->mail->Username = 'gestioneacquarimarini@gmail.com';
-        $this->mail->Password = 'Jecki12345@';
-        $this->mail->setFrom('gestioneacqaurimarini@gmail.com', 'Mattia Ruberto');
-        $this->mail->Subject = 'Gestione Acquari Marini';
+        $this->mail->Username = EMAIL_AMMINISTRATORE;
+        $this->mail->Password = PASSWORD_AMMINISTRATORE;
+        $this->mail->setFrom(EMAIL_AMMINISTRATORE, );
+        $this->mail->Subject = EMAIL_SUBJECT;
     }
     /**
      * Funzione usata per inviare un email contenente la nuova password.
@@ -44,7 +44,7 @@ class MailModel{
         $this->mail->AltBody = "<b>Benvenuto ".$name." ".$surname."<b>";
         $this->mail->Body = "Il tuo account è stato creato con successo, adesso non dovrai fare altro che accedere al sito con la password di default: <br>"
             . $newPassword .
-            "<br> e cambiare la password con una tua personale,<br> Cordiali saluti,<br> Mattia</p>";
+            "<br> e cambiare la password con una tua personale,<br> Cordiali saluti,<br> Amministratore</p>";
         return $this->sendEmail();
     }
     /**
@@ -58,7 +58,7 @@ class MailModel{
         $this->mail->AltBody = "<b>La tua password è stata aggiornata con successo<b>";
         $this->mail->Body = "Il tua password è stato aggiornata con successo, adesso non dovrai fare altro che accedere al sito con la password di default: <br>"
             . $newPassword .
-            "<br> e cambiare la password con una tua personale,<br> Cordiali saluti,<br> Mattia</p>";
+            "<br> e cambiare la password con una tua personale,<br> Cordiali saluti,<br> Amministratore</p>";
         return $this->sendEmail();
     }
     /**

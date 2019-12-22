@@ -16,7 +16,7 @@ class TankModel{
      */
     public function __construct(){
         require_once "database.php";
-        $this->connection = new Database("gestioneacquarimarini");
+        $this->connection = new Database(DB_NAME);
     }
     /**
      * Metodo che ritorna tutte le vasche sul database.

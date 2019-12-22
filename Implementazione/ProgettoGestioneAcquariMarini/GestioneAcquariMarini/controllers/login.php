@@ -49,9 +49,9 @@ class Login{
      */
     public function logIn(){
         if (isset($_POST[LOGIN]) && !empty($_POST[USER_EMAIL]) && !empty($_POST[USER_PASSWORD])) {
-            $email = $this->generalValidation($_POST[USER_EMAIL]);
+            $email = $_POST[USER_EMAIL];
             $user = $this->userModel->getUserByEmail($email);
-            if (count($user) > 0 && password_verify ( $_POST[USER_PASSWORD], $user[0][USER_PASSWORD])) {
+            if (count($user) > 0 && password_verify($_POST[USER_PASSWORD], $user[0][USER_PASSWORD])) {
                 $_SESSION[AUTHENTIFICATION] = true;
                 $_SESSION[USER_EMAIL] = $user[0][USER_EMAIL];
                 $_SESSION[USER_TYPE] = $user[0][DB_USER_TYPE];

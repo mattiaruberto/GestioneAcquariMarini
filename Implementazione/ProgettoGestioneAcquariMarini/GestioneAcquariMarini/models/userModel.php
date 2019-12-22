@@ -16,7 +16,7 @@ class UserModel{
      */
     public function __construct(){
         require_once "database.php";
-        $this->connAccess = new Database('gestioneacquarimarini');
+        $this->connAccess = new Database(DB_NAME);
     }
     /**
      * Metodo che ritorna tutte gli utente sul database.

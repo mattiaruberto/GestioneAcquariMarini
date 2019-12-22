@@ -5,8 +5,15 @@
     define("DB_HOST", "localhost");
     define("DB_USER", "root");
     define("DB_PASS", "");
+    define("DB_NAME", "gestioneacquarimarini");
     define("TOCHANGEPASSWORD", "Da cambiare");
     define("NOTCHANGEPASSWORD", "Non cambiare");
+
+    //Costanti email
+    define("EMAIL_AMMINISTRATORE", "gestioneacquarimarini@gmail.com");
+    define("PASSWORD_AMMINISTRATORE", "Password&1234");
+    define("NAME_AMMINISTRATOR", "Amministratore");
+    define("EMAIL_SUBJECT", "Gestione Acquari Marini");
 
     //Costante utilizzata per arrivare alla pagina di login
     define("LOGIN", "login");

@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput">Numero</label>
-                <input class="form-control" type="number" id="number" name="number" onchange="validateNumber(this, 0, 1000)" value="<?php if(isset($habitantManagement["habitantNumber"])){echo $habitantManagement["habitantNumber"]; } ?>"/>
+                <input class="form-control" type="number" id="number" name="number" onchange="validateNumber(this, 0, 1000)" value="<?php if(isset($habitantManagement[HABITANT_NUMBER])){echo $habitantManagement[HABITANT_NUMBER]; } ?>"/>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary btn-sm" value="<?php if(isset($nameButton)){echo $nameButton;} ?>"/>
